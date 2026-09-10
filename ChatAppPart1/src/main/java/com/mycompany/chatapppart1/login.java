@@ -14,12 +14,28 @@ public class login {
     String username;
     String password;
     String phoneNumber;
+    String firstName;
+    String lastName;
+    /*
+    *constructor used to initialise the users registation details.
+    *The values entered by the userare assignedto the class variables.
+    */
+    public  login (String firstName, String lastName,String username, String password, String phoneNumber){
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.username = username;
+      this.password = password;
+      this.phoneNumber = phoneNumber;
+    }
     
     // Username Validation
     public boolean checkUserName(String username){
-        return username.contains("")&& username.length() <=5;
+        if (username.contains("_")&& username.length()<=5){
+            return true;
+        }else
+            return false;
     } 
-        
+}
         
         // Password Validation
          public boolean checkPasswordComplexity(String password){
@@ -49,7 +65,8 @@ public class login {
             return phone.startsWith("+27") && phone.length()<=12;
         }
             //Register Validation
-            
+           
+        
             public String registerUser(String username,String password,String phoneNumber){
                 
                 if (!checkUserName(username)){
@@ -64,13 +81,27 @@ return "Password is not correctly formatted; please ensure that the password con
 if (!checkCellphoneNumber(phoneNumber)) { 
 return "Cell phone number incorrectly formatted or does not contain international code."; 
 } 
-this.username = username; 
-this.password = password; 
-this.phoneNumber = phoneNumber; 
-return "User registered successfully."; 
+
+
 }
+
+// login in details the user should enter
+// details should be the same with the registration details
+
+public boolean loginUser(String username, String password){
+    return this.username.equals(username)&& this.password.equals(password);
+    
+    //login feature
+    public boolean loginUser(String username, String password){
+        return username.equals(username) && this.password.equals(password);
+    }
+    // return login status
+    public String returnLoginUser(String)
+    }
 }
-  
+ 
+
+
                 
             
         

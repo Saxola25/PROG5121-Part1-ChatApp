@@ -4,10 +4,7 @@
  */
 package com.mycompany.chatapppart1;
 
-/**
- *
- * @author Student
- */
+
 public class Main {
     
 }
