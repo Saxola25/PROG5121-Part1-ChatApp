@@ -29,7 +29,7 @@ public class login {
     }
     
     // Username Validation
-    public boolean checkUserName(String username){
+    public boolean checkUserName(){
         if (username.contains("_")&& username.length()<=5){
             return true;
         }else
@@ -67,11 +67,16 @@ public class login {
             //Register Validation
            
         
-            public String registerUser(String username,String password,String phoneNumber){
+            public String registerUser(){
+                String message = "";
+            
                 
-                if (!checkUserName(username)){
-                    return "Username is not correctly forrmatted;please ensure that the username contains an underscore and is no more than five characters in lenth.";
-                }
+                if (checkUserName()){
+                    message +=  "Username is not correctly forrmatted;please ensure that the username contains an underscore and is no more than five characters in lenth.";
+                }else{ 
+                    message+= "Username is not correctly forrmatted;please ensure that the username contains an underscore and is no more than five characters in lenth."
+                } 
+                    
                     
                     
                     
@@ -83,23 +88,16 @@ return "Cell phone number incorrectly formatted or does not contain internationa
 } 
 
 
-}
+
 
 // login in details the user should enter
 // details should be the same with the registration details
 
-public boolean loginUser(String username, String password){
-    return this.username.equals(username)&& this.password.equals(password);
     
     //login feature
-    public boolean loginUser(String username, String password){
+    public boolean loginUser(){
         return username.equals(username) && this.password.equals(password);
     }
-    // return login status
-    public String returnLoginUser(String)
-    }
-}
- 
 
 
                 
