@@ -1,52 +1,67 @@
-# PROG5121 Part1 ChatApp
-Student Details
+PROG5121 Part 1 and part 2 ChatApp
 
-Student Name: Saxola Masoka
-Student Number: ST10520212
-Module: PROG5121 - Programming 1A
-Assessment: Part 1 - Registration and Login Feature
+student Details
+
+- Student Name: Saxola Masoka
+- Student Number:ST10520212
+- Module:PROG5121 - Programming 1A
+- Assessment:  Part 1 part 2
 
  Project Overview
 
-This is a Java-based console application built to satisfy the registration and login requirements of PROG5121 Part 1. Users can register by providing a username, password, and South African cell phone number, and can then log in using those saved credentials.
+This Java console application was created for PROG5121 Part 1. It lets a user register with a username, password, and South African cellphone number, then log in with those credentials.u for creating, sending, storing, and viewing messages.
 
  Features
 
-- Validates usernames
-- Enforces password complexity rules
-- Verifies South African cell phone numbers via regex
-- Handles new user registration
-- Authenticates users on login
+- Validates usernames for an underscore and a maximum length of five characters
+- Checks password complexity requirements
+- Validates South African cellphone numbers in international format (`+27` followed by nine digits)
+- Registers users and authenticates login credentials
 - Displays a welcome message using the user's first and last name
-- Includes JUnit tests covering both valid and invalid input cases
+- Creates message IDs and message hashes
+- Lets users send, disregard, store, and view messages
+- Saves stored messages to `messages.json`
+- Includes JUnit tests for login and message features
 
- Technologies Used
-
-- Java
+Technologies Used
+- Java 25
 - Apache Maven
 - NetBeans
-- JUnit
-- Git and GitHub
+- JUnit 5
+- GitHub
 
  Project Structure
 
-- `Main.java` - Runs the console application and manages user input.
-- `Login.java` - Handles registration, input validation, and login logic.
-- `LoginTest.java` - Holds the JUnit tests for Part 1 features.
+The Maven project is in the ChatAppPart1 folder.
 
- How to Run
+- src/main/java/com/mycompany/chatapppart1/Main.java - Runs the console application and handles user input.
+- src/main/java/com/mycompany/chatapppart1/Login.java - Handles registration, validation, and login logic.
+- src/main/java/com/mycompany/chatapppart1/Message.java - Handles message validation, IDs, hashes, sending, and storage.
+- src/test/java/com/mycompany/chatapppart1/LoginTest.java - Tests registration and login features.
+- src/test/java/com/mycompany/chatapppart1/MessageTest.java - Tests message features.
+- pom.xml - Maven project configuration and dependencies.
+- messages.json - Message storage file used by the application.
 
-1. Open the Maven project in NetBeans.
-2. Execute `Main.java`.
-3. Respond to the registration and login prompts shown in the console.
+How to Run
+
+1. Open the ChatAppPart1 folder as a Maven project in NetBeans.
+2. Make sure Java 25 is configured for the project.
+3. Run Main.java from the com.mycompany.chatapppart1 package.
+4. Follow the registration and login prompts in the console.
+
 
  Testing
 
-The test suite lives in `LoginTest.java`, covering valid and invalid entries for usernames, passwords, and cell phone numbers, along with checks for both successful and failed logins and their corresponding system messages.
+JUnit tests are located in LoginTest.java and MessageTest.java. They cover valid and invalid usernames, passwords, cellphone numbers, login results, message length, message IDs, hashes, and message actions.
 
- Regex Reference
+To run the tests with Maven, open a terminal in the ChatAppPart1 folder and run:
 
-The regular expression used to validate South African cell phone numbers in this project is:
+Regex Reference
 
-This pattern is based on the numbering standards set by the Independent Communications Authority of South Africa (ICASA). ICASA defines South African phone numbers as 10 digits at the national level, while the country's international dialing format uses the `+27` prefix. When the `+27` code is applied, the leading national `0` is dropped, leaving nine digits after the prefix.
+The Message class checks cellphone numbers using this Java regular expression:
+It matches +27 followed by exactly nine digits. This represents the international format where the leading 0 from a South African national cellphone number is omitted.
+
+The Login class performs the equivalent check by verifying that the number begins with +27, has 12 characters in total, and contains only digits after the prefix.
+
+
 
