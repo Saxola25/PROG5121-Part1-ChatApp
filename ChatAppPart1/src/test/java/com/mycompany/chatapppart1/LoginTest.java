@@ -128,7 +128,7 @@ public class LoginTest {
         // Creates a Login object using valid registration details.
         Login login = new Login(
                 "Kyle",
-                "Nodongwe",
+                "User",
                 "kyl_1",
                 "Ch&&sec@ke99!",
                 "+27838968976"
@@ -142,7 +142,7 @@ public class LoginTest {
 
         // Check that the expected welcome message is returned.
         assertEquals(
-                "Welcome Kyle Nodongwe, it is great to see you again.",
+                "Welcome Kyle User, it is great to see you again.",
                 login.returnLoginStatus()
         );
     }
@@ -223,10 +223,11 @@ public class LoginTest {
         String result = login.registerUser();
 
         // Compare the expected error messages with the actual message.
-        assertEquals(
-                "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.\n"
-                + "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.\n"
-                + "Cell phone number incorrectly formatted or does not contain international code.\n",
+        assertEquals("""
+                     Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.
+                     Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.
+                     Cell phone number incorrectly formatted or does not contain international code.
+                     """,
                 result
         );
     }
